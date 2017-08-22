@@ -1,0 +1,10 @@
+/* rule.wxss */
+.container{
+  padding: 20rpx 50rpx;
+  background: #88c2cf;
+  color: seagreen;
+  justify-content: flex-start;
+}
+.txt{
+  font-size: 16px;
+}

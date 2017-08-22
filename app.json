@@ -1,0 +1,41 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/active/active",
+    "pages/rule/rule",
+    "pages/about/about"
+  ],
+  "window": {
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "black",
+    "enablePullDownRefresh": false,
+    "navigationBarBackgroundColor": "#000000",
+    "navigationBarTitleText": "狼人红黑夜",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#000000",
+    "selectedColor": "#09bb07",
+    "backgroundColor": "#fff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath":"/images/icon1.png",
+        "selectedIconPath":"/images/active1.png",
+        "text": "游戏"
+      },
+      {
+        "pagePath": "pages/rule/rule",
+        "iconPath": "/images/icon2.png",        
+        "selectedIconPath": "/images/active2.png",        
+        "text": "规则"
+      },
+      {
+        "pagePath": "pages/about/about",
+        "iconPath": "/images/icon3.png",
+        "selectedIconPath": "/images/active3.png",        
+        "text": "吐槽"
+      }
+    ]
+  }
+}

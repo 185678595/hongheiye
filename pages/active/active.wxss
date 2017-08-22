@@ -1,0 +1,414 @@
+/* pages/active/active.wxss */
+.Wrap{
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.modal{
+  background: rgba(0, 0, 0, 0.8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+.title{
+  text-align: center;
+  font-weight: bold;
+  height: 30rpx;
+  line-height: 1;
+}
+.title text{color: #ff2626;}
+
+#table {
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  width: 80%;
+  background-color: #e49758;
+  height: 80%;
+  border-radius: 300rpx;
+  box-shadow: 0 0 10px #000;
+}
+
+ #table_cover {
+  position: absolute;
+  top: 6%;
+  left: 10%;
+  width: 80%;
+  height: 88%;
+  background-color: #8a6b4d;
+  border-radius: 300rpx;
+  box-shadow: 0 0 10px #000 inset;
+} 
+
+.seat {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120rpx;
+  height: 120rpx;
+  background-color: #BFBFFF;
+  border: 2rpx solid #000;
+  border-radius: 100rpx;
+  transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%,-50%);
+  box-shadow: 0 0 20px #000 inset;
+}
+
+.cz_header{
+  position: absolute;
+  top: 120rpx;
+  left:0;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  color: green;
+  font-weight: bold;
+  background: #fff;
+  text-align: center;
+  line-height: 50rpx;
+}
+
+.seatId {
+  position: absolute;
+  bottom: 10rpx;
+  left: 16rpx;
+  background-color: #FF0000;
+  font-size: 32rpx;
+  color: #fff;
+  width: 40rpx;
+  height: 40rpx;
+  line-height: 40rpx;
+  text-align: center;
+  border-radius: 40rpx;
+  z-index: 100;
+}
+
+.cz_item{
+  height: 200rpx;
+  width: 600rpx;
+  background: #fff;
+  border: 10rpx solid #eee;
+  position: absolute;
+  top: 0;left: 0;bottom: 0;right: 0;
+  margin: auto;
+  z-index: 100;
+  border-radius: 10rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.shutdown{
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0);
+  z-index: 10;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+
+.cz_item button{
+  border-radius: 50%;
+  width: 150rpx;
+  height: 150rpx;
+  font-size: 22rpx;
+  color: #000;
+  text-align: center;
+  line-height: 150rpx;
+  background: #4d4d4d;
+  box-sizing: border-box;
+  border: 2rpx solid eee;
+}
+.btn_cz{
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  -webkit-transform:translate(-50%, -50%);
+  -moz-transform: translate(-50%,-50%);
+  -ms-transform: translate(-50%,-50%);
+  -o-transform: translate(-50%,-50%);
+  left: 50%;
+  background: #9bc8db;
+  color: #fff;
+  font-size: 14px;
+}
+
+.seat image{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.seat .deadModal{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, .6);
+  border-radius: 50%;
+}
+.gameBegin{
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+.voteInfoBtn{
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+}
+.info{
+  width: 200rpx;
+  height: 200rpx;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  margin-left: -100rpx;
+  bottom: 25%;
+  border:6rpx solid #ccc;
+  border-radius: 10rpx;
+  transform-style: preserve-3d; 
+  transform: rotateY(-180deg);
+}
+.info text{
+  background:#000;
+  display: block;
+  line-height:3;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  font-size: 60rpx;
+  backface-visibility: hidden;
+}
+.info .red{
+  background: red;
+}
+.backface{
+  line-height: 200rpx;
+  width: 100%;
+  height: 100%;
+  color: #000;
+  font-weight: bold;
+  background: #fff;
+  transform: rotateY(180deg);
+  position: absolute;
+  left: 0;
+  top: 0;
+  font-size: 30rpx;
+}
+
+/* 投票弹窗 */
+.voteInfo{
+  width: 70%;
+  height: 70%;
+  position: absolute;
+  left: 0;right: 0;top: 0;bottom: 0;
+  margin: auto;
+  background: #fff;
+  border-radius: 10rpx;
+  color: #666;
+  z-index: 3;
+}
+
+.voteHead{
+  height: 80rpx;
+  border-bottom: 2rpx slategray solid;
+  overflow-x: auto;
+}
+.voteHead .wrap{
+  height: 80rpx;
+}
+.voteHead .wrap .active{
+  background: #333;
+  color: #fff;
+}
+
+.voteHead .voteNum{
+  background: #ccc;
+  color: black;
+  width: 160rpx;
+  min-width: 46px;
+  display: inline-block;
+  height: 80rpx;
+  border-right: 2rpx slategray solid;
+  text-align: center;
+  line-height: 2;
+  box-sizing: border-box;
+}
+
+.voteBtn{
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 3;
+}
+
+.chooseVote{
+  border: 6rpx solid #666;
+  background: #fff;
+  width: 80%;
+  height: 50%;
+  position: absolute;
+  left: 0;right: 0;top: 0;bottom: 0;
+  margin: auto;
+  border-radius: 10rpx;
+  display: flex;
+  display: -webkit-flex;
+  flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  z-index: 5;
+}
+
+.vote_id{
+  width: 25%;
+  height: 32%;
+  display: flex;
+  display: -webkit-flex;
+  flex-grow: 1;
+  font-weight: bold;
+  border: 2rpx solid #ddd;
+  justify-content: center;
+  align-items: center;
+}
+.vote_id .btn{
+  width: 120rpx;
+  height: 120rpx;
+  background: #666;
+  line-height: 120rpx;
+  border-radius: 50%;
+  box-shadow:0 0 10rpx  #888;
+  color: black;
+  font-size: 14px;
+  text-align: center;
+}
+
+.cancel_vote{
+  color: red;
+}
+/* 投票信息窗口 */
+.voteCont{
+  height: 100%;
+  overflow: scroll;
+}
+.voteCont .line{
+  height: 100rpx;
+  border-bottom: 10rpx solid #FF8000;
+}
+.voteCont .line .left{
+  float: left;
+  width: 15%;
+  line-height: 100rpx;
+  height: 100%;
+  text-align:  center;
+  color: red;
+  border-right: 2rpx solid #FF8000;
+  box-sizing: border-box;
+}
+.voteCont .line .right{
+  float: left;
+  width: 85%;
+  height: 100%;
+  display: flex;
+  display: -webkit-flex;
+  align-items: center;
+}
+.voteCont .line .right .arrow{
+  font-size: 16px;
+  font-weight: bold;
+  line-height:100rpx;
+  height: 100%;
+  width: 30rpx;
+  padding-left: 20rpx;
+}
+.voteCont .line .right .voteid{
+  color: #000;
+  text-align: center;
+  flex-grow: 1;
+}
+.voteCont .line .right .active .item{
+  background: turquoise;
+  font-weight: bold;
+}
+.voteCont .line .voteid .item{
+  display: inline-block;
+  width: 90rpx;
+  height: 90rpx;
+  margin: auto;
+  font-size: 16px;
+  line-height: 90rpx;
+  color: #fff;
+  border-radius: 50%;
+  background: teal;
+}
+.time{
+  width: 200rpx;
+  height: 200rpx;
+  position: absolute;
+  left: 50%;
+  top: 0;
+  margin-left: -100rpx;
+  text-align: center;
+  z-index: 10;
+  color: red;
+  font-size: 60rpx;
+}
+
+.whichnight{
+  width: 200rpx;
+  height: 400rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  z-index: 2;
+}
+.whichnight .redNight{
+  color: #fff;
+  background: red;
+}
+.whichnight .blackNight{
+  color: #fff;
+  background: black;
+}
+.whoWin{
+  background: rgba(0, 0, 0, .8);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left:0;
+  top: 0;
+  text-align: center;
+  z-index: 9999;
+}
+.whoWin text{
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  line-height: 8;
+}
+.first{
+  width: 100%;
+  height: 100%;
+  background: red;
+  z-index: 1000;
+  position: absolute;
+  left: 0;
+  top:0;
+}
+.first image{
+  width: 100%;
+  height: 100%;
+}

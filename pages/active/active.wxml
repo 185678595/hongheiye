@@ -1,0 +1,104 @@
+<!--pages/active/active.wxml-->
+<view class="Wrap">
+  <view class="title">房间号:<text>{{ roomid }}</text></view>
+  <!-- 模态层 -->
+  <view class="modal" wx:if="{{ showmodal }}" catchtap="modaltap"></view>
+
+    <ul id="table">
+      <view id="table_cover"></view>
+      <button catchtap="cz_btn" class="btn_cz" wx:if="{{ isCz }}">村长按钮</button>
+      <li class="seat" wx:for="{{seatCord[chair_num]}}" style="top:{{item.top}};left:{{item.left}}" catchtap="seat" data-seatid="{{index+1}}">
+        <span class="seatId">{{index+1}}</span>
+         <view class="deadModal" wx:if="{{ dead[index+1]?true:false }}"></view> 
+        <image wx:if="{{setimage[index].seatState == 0}}" src="http://piclaiyu.oss-cn-shanghai.aliyuncs.com/lizhuiri/touxiang-03.png"></image>
+        <image wx:else src="{{playsetobj[index+1].playUser.imagePath}}"></image> 
+      </li>
+        <block wx:for="{{ all_sign }}">
+            <view class="cz_header"  style="top:{{all_sign[index].top}};left:{{all_sign[index].left}};">{{ all_sign[index].n == 0?'?':all_sign[index].n }}</view>
+        </block>
+    </ul>
+
+  <!-- 村长按钮弹窗 -->
+  <view class="cz_item" wx:if="{{cz_switch}}">
+    <button catchtap="gamebegin">开始游戏</button>
+    <button catchtap="Startvote">发起投票</button>
+    <button catchtap="deal">发牌</button>
+    <button catchtap="cancel">取消</button>
+  </view>
+
+  <!-- 身份 -->
+  <view class="info" wx:if="{{ info_switch }}" animation="{{ seeBR }}" catchtap="turnCard">
+    <view class="backface" bindtap="">点击查看身份</view>
+    <text wx:if="{{ info_id == 'b' }}" class="black">狼</text>
+    <text wx:elif="{{ info_id == 'r' }}" class="red">民</text>
+  </view>
+
+  <!-- 查看投票信息弹窗 -->
+  <view class="voteInfo" wx:if="{{ vote_switch }}">
+    <view class="voteHead">
+      <view class="wrap" style="width:{{ voteheadwrap }}">
+        <view class="voteNum {{ index+1 == turns?'active':'' }}" wx:for="{{ be_voted }}" catchtap="changeturn" data-id="{{ index+1 }}">第{{ index+1 }}轮</view>
+      </view>
+    </view>
+    <view class="voteCont">
+        <view class="line" wx:for="{{ be_voted[turns-1] }}">
+          <view class="left">
+            {{ item.key == '0'? '弃':item.key}}
+          </view>
+          <view class="right">
+            <text class="arrow">←</text>
+            <block wx:for="{{ item.value }}">
+              <view class="voteid {{ item == czseat?'active':'' }}" >
+                <view class="item">
+                  {{item}}
+                </view>
+              </view>
+            </block> 
+            
+          </view>
+        </view>
+    </view>
+  </view>
+
+  <!-- 倒计时 -->
+  <view class="time" wx:if="{{ isTime }}">
+    <text>{{ time }}</text>
+  </view>
+
+  <!-- 投票窗口 -->
+  <view class="chooseVote" wx:if="{{ voted_num }}">
+    <view class="vote_id" wx:for="{{ campaign }}">
+      <view class="btn" catchtap="vote_someone" data-id="{{item}}">
+        {{ item }}
+      </view>
+    </view>
+    <view class="vote_id" >
+      <view class="btn cancel_vote" catchtap="vote_someone" data-id="0">
+        放弃
+      </view>
+    </view>
+  </view>
+
+  <!-- 阵营选择 -->
+  <view class="whichnight" wx:if="{{ nigth_choose }}">
+    <button class="redNight" catchtap="choosered">红夜睁眼</button>
+    <button class="blackNight" catchtap="chooseblack">黑夜睁眼</button>
+  </view>
+
+  <button class="gameBegin" wx:if="{{homeOwner}}" catchtap="deal">开始发牌</button>
+  
+  <button class="voteBtn" catchtap="vote" wx:if="{{isVote}}">投票</button>
+  
+  <button class="voteInfoBtn" catchtap="checkVote" wx:if="{{vote_btn}}">投票信息</button>
+
+  <!-- 游戏结束 -->
+  <view class="whoWin" wx:if="{{ win }}">
+    <text>{{winner}}</text>
+  </view>
+
+<view class="shutdown" wx:if="{{ shutdown }}" catchtap="{{ modaltap }}"></view>
+
+</view>
+ <view class="first" wx:if="{{ first }}"  bindtap="getfirst">
+  <image src="/images/desk.png"></image>
+ </view> 

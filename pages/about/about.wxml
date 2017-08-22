@@ -1,0 +1,13 @@
+<!--about.wxml-->
+<view class="wrap">
+  <view class="qrcode">
+     <image src="/images/qrcode.jpg"></image> 
+  </view>
+
+  <view class="txt">
+    <text class="title">版本说明:</text>
+    <text>v1.0.0小程序发布</text>
+  </view>
+
+  <button open-type="contact" type="primary" session-from="吐槽">联系我们</button>
+</view>
